@@ -1,5 +1,6 @@
 plugins {
     id("org.jetbrains.intellij") version "1.17.4"
+//    id("java")
 }
 
 group = "kela.plugins"
@@ -16,11 +17,18 @@ dependencies {
 
 intellij {
     version = "232.10072.27"
-    plugins = ['java']
+    java
 }
 
 tasks {
+//    signPlugin {
+//        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+//        privateKey.set(System.getenv("PRIVATE_KEY"))
+//        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+//    }
+
     test {
         useJUnitPlatform()
     }
 }
+

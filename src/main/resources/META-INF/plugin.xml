@@ -1,0 +1,15 @@
+<idea-plugin>
+    <id>kela.plugins.dsl</id>
+    <name>Drools DSL IDE Support</name>
+    <vendor email="keeganpeaco@gmail.com">Kelavandoril</vendor>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+            name="dsl"
+            implementationClass="kela.plugins.dsl.lang.DSLFileType"
+            fieldName="INSTANCE"
+            language="dsl"
+            extensions="dsl"
+        />
+    </extensions>
+</idea-plugin>
