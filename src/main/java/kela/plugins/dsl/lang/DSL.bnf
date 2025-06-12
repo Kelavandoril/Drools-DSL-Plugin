@@ -1,0 +1,34 @@
+{
+    parserClass="kela.plugins.dsl.lang.parser.DSLParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="DSL"
+    psiImplClassSuffix="Impl"
+    psiPackage="kela.plugins.dsl.lang.psi"
+    psiImplPackage="kela.plugins.dsl.lang.psi.impl"
+
+    elementTypeHolderClass="kela.plugins.dsl.psi.DSLTypes"
+    elementTypeClass="kela.plugins.dsl.psi.DSLElementType"
+    tokenTypeClass="kela.plugins.dsl.psi.DSLTokenType"
+
+    tokens = [
+        WHEN="[when]"
+        THEN="[then]"
+        EQ="="
+        LVAR="{"
+        RVAR="}"
+    ]
+}
+
+simpleFile ::= expression_*
+
+private expression_ ::= (entry|COMMENT|CRLF)
+
+entry ::= (LHS '=' RHS CRLF?)
+
+LHS ::= WHEN_EXPRESSION |
+        THEN_EXPRESSION
+RHS ::= (JAVA_CODE|DRL_CODE)+
+
+WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+
+THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+

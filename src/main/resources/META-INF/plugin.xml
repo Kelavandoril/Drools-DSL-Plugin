@@ -11,5 +11,8 @@
             language="dsl"
             extensions="dsl"
         />
+        <lang.parserDefinition
+            language="dsl"
+            implementationClass="kela.plugins.dsl.lang.DSLParserDefinition"/>
     </extensions>
 </idea-plugin>
