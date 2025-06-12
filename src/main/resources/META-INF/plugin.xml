@@ -14,5 +14,10 @@
         <lang.parserDefinition
             language="dsl"
             implementationClass="kela.plugins.dsl.lang.DSLParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+            language="dsl"
+            implementationClass="kela.plugins.dsl.lang.DSLSyntaxHighlighterFactory"/>
+        <colorSettingsPage
+                implementation="kela.plugins.dsl.lang.DSLColorSettingsPage"/>
     </extensions>
 </idea-plugin>
