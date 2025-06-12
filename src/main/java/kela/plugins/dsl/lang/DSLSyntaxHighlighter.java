@@ -16,12 +16,14 @@ public class DSLSyntaxHighlighter extends SyntaxHighlighterBase {
             createTextAttributesKey("DSL_WHEN", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey THEN =
             createTextAttributesKey("DSL_THEN", DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey KEYWORD =
+            createTextAttributesKey("DSL_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey VAR =
             createTextAttributesKey("DSL_VAR", DefaultLanguageHighlighterColors.INSTANCE_FIELD);
     public static final TextAttributesKey COMMENT =
             createTextAttributesKey("DSL_COMMENT", DefaultLanguageHighlighterColors.DOC_COMMENT);
 
-    private static final TextAttributesKey[] KEYWORD_KEYS = new TextAttributesKey[]{WHEN,THEN};
+    private static final TextAttributesKey[] KEYWORD_KEYS = new TextAttributesKey[]{WHEN,THEN,KEYWORD};
     private static final TextAttributesKey[] VAR_KEYS = new TextAttributesKey[]{VAR};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
@@ -34,7 +36,7 @@ public class DSLSyntaxHighlighter extends SyntaxHighlighterBase {
 
     @Override
     public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType) {
-        if (tokenType.equals(DSLTypes.WHEN) || tokenType.equals(DSLTypes.THEN)) {
+        if (tokenType.equals(DSLTypes.WHEN) || tokenType.equals(DSLTypes.THEN) || tokenType.equals(DSLTypes.KEYWORD)) {
             return KEYWORD_KEYS;
         }
         if (tokenType.equals(DSLTypes.COMMENT)) {

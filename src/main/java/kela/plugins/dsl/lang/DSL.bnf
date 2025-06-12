@@ -1,5 +1,6 @@
 {
     parserClass="kela.plugins.dsl.lang.parser.DSLParser"
+    parserUtilClass="kela.plugins.dsl.lang.parser.DSLParserUtil"
     extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
     psiClassPrefix="DSL"
@@ -14,6 +15,7 @@
     tokens = [
         WHEN="[when]"
         THEN="[then]"
+        KEYWORD="[keyword]"
         EQ="="
         LVAR="{"
         RVAR="}"
@@ -27,8 +29,11 @@ private expression_ ::= (entry|COMMENT|CRLF)
 entry ::= (LHS '=' RHS CRLF?)
 
 LHS ::= WHEN_EXPRESSION |
-        THEN_EXPRESSION
+        THEN_EXPRESSION |
+        KEYWORD_EXPRESSION
+
 RHS ::= (JAVA_CODE|DRL_CODE)+
 
 WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+
 THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+
+KEYWORD_EXPRESSION ::= "[keyword]" (STRING_TOKEN)+

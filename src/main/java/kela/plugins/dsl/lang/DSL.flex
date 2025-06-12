@@ -6,7 +6,6 @@ import kela.plugins.dsl.psi.DSLTokenType;import kela.plugins.dsl.psi.DSLTypes;
 import com.intellij.psi.TokenType;
 import java.util.Stack;
 import java.util.List;
-import java.util.ArrayList;import java.util.concurrent.atomic.AtomicBoolean;
 
 %%
 %{
@@ -14,7 +13,6 @@ import java.util.ArrayList;import java.util.concurrent.atomic.AtomicBoolean;
       this((java.io.Reader)null);
     }
     private final Stack<Integer> stateStack = new Stack<>();
-    private final List<String> dslVarList = new ArrayList<>();
 
     private void pushState(int newState) {
         stateStack.push(newState);
@@ -40,8 +38,6 @@ CRLF=\R
 WHITE_SPACE=[\ \n\t\f]
 LINE_COMMENT=("#")[^\r\n]*
 SEPARATOR=[=]
-ALPHA=[:letter:]
-NUM=[:digit:]
 STRING_TOKEN= [^\r\n\{\}\=]+
 LHS_VAR=("\{"{STRING_TOKEN}"\}")
 JAVA_CODE=([^\r\n\$\{\}\=\[\]]";"?)+
@@ -58,6 +54,10 @@ DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
         pushState(LHS);
         return DSLTypes.THEN;
     }
+    "[keyword]" {
+        pushState(LHS);
+        return DSLTypes.KEYWORD;
+    }
     {LINE_COMMENT} {
         return DSLTypes.COMMENT;
     }
@@ -65,9 +65,6 @@ DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
 
 <LHS> {
     {LHS_VAR} {
-        String matchedText = yytext().toString();
-        dslVarList.add(matchedText);
-        System.out.println("Added " + matchedText);
         return DSLTypes.LHS_VARIABLE;
     }
     {STRING_TOKEN} {
