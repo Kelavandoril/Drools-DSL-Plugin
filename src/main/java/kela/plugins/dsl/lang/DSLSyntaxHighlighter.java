@@ -42,7 +42,7 @@ public class DSLSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(DSLTypes.COMMENT)) {
             return COMMENT_KEYS;
         }
-        if (tokenType.equals(DSLTypes.LHS_VARIABLE)) {
+        if (tokenType.equals(DSLTypes.VARIABLE)) {
             return VAR_KEYS;
         }
         return EMPTY_KEYS;

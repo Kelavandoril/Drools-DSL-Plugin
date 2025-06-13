@@ -35,13 +35,14 @@ import java.util.List;
 %state RHS
 
 CRLF=\R
-WHITE_SPACE=[\ \n\t\f]
-LINE_COMMENT=("#")[^\r\n]*
+SLASH_COMMENT=("//")[^\r\n]*
+HASH_COMMENT=("#")[^\r\n\/]*
+DEBUG_COMMENT=("#/")[^\r\n]*
 SEPARATOR=[=]
-STRING_TOKEN= [^\r\n\{\}\=]+
-LHS_VAR=("\{"{STRING_TOKEN}"\}")
-JAVA_CODE=([^\r\n\$\{\}\=\[\]]";"?)+
-DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
+STRING_TOKEN=[^\r\n\{\}\=]+
+VAR=("\{"{STRING_TOKEN}"\}")
+//JAVA_CODE=([^\r\n\$\{\}\=\[\]]";"?)+
+//DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
 
 
 %%
@@ -58,14 +59,11 @@ DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
         pushState(LHS);
         return DSLTypes.KEYWORD;
     }
-    {LINE_COMMENT} {
-        return DSLTypes.COMMENT;
-    }
 }
 
 <LHS> {
-    {LHS_VAR} {
-        return DSLTypes.LHS_VARIABLE;
+    {VAR} {
+        return DSLTypes.VARIABLE;
     }
     {STRING_TOKEN} {
         return DSLTypes.STRING_TOKEN;
@@ -77,15 +75,24 @@ DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
 }
 
 <RHS> {
-    {JAVA_CODE} {
-        return DSLTypes.JAVA_CODE;
+//    {JAVA_CODE} {
+//        return DSLTypes.JAVA_CODE;
+//    }
+//    {DRL_CODE} {
+//        return DSLTypes.DRL_CODE;
+//    }
+    {VAR} {
+        return DSLTypes.VARIABLE;
     }
-    {DRL_CODE} {
-        return DSLTypes.DRL_CODE;
-    }
-    {LHS_VAR} {
-        return DSLTypes.LHS_VARIABLE;
-    }
+}
+
+{SLASH_COMMENT} | {HASH_COMMENT} {
+    yybegin(YYINITIAL);
+    return DSLTypes.COMMENT;
+}
+
+{DEBUG_COMMENT} {
+    return DSLTypes.DEBUG_COMMENT;
 }
 
 {CRLF} {

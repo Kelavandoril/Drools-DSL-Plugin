@@ -1,39 +1,45 @@
 {
     parserClass="kela.plugins.dsl.lang.parser.DSLParser"
-    parserUtilClass="kela.plugins.dsl.lang.parser.DSLParserUtil"
     extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
     psiClassPrefix="DSL"
     psiImplClassSuffix="Impl"
     psiPackage="kela.plugins.dsl.lang.psi"
     psiImplPackage="kela.plugins.dsl.lang.psi.impl"
+    psiImplUtilClass="kela.plugins.dsl.lang.DSLPsiImplUtil"
 
     elementTypeHolderClass="kela.plugins.dsl.psi.DSLTypes"
     elementTypeClass="kela.plugins.dsl.psi.DSLElementType"
     tokenTypeClass="kela.plugins.dsl.psi.DSLTokenType"
 
     tokens = [
+        SLASH="//"
+        HASH="#"
+        DEBUG="#/"
         WHEN="[when]"
         THEN="[then]"
         KEYWORD="[keyword]"
         EQ="="
-        LVAR="{"
-        RVAR="}"
     ]
 }
 
-simpleFile ::= expression_*
-
-private expression_ ::= (entry|COMMENT|CRLF)
-
-entry ::= (LHS '=' RHS CRLF?)
-
-LHS ::= WHEN_EXPRESSION |
-        THEN_EXPRESSION |
-        KEYWORD_EXPRESSION
-
-RHS ::= (JAVA_CODE|DRL_CODE)+
-
-WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+
-THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+
-KEYWORD_EXPRESSION ::= "[keyword]" (STRING_TOKEN)+
+dslFile ::= ENTRY*
+ENTRY ::= COMMENT |
+          DEBUG_COMMENT |
+          CRLF |
+          WHEN_EXPRESSION |
+          THEN_EXPRESSION |
+          KEYWORD_EXPRESSION
+COMMENT ::= ("//"|"#") STRING_TOKEN* CRLF
+DEBUG_COMMENT ::= ("#/") STRING_TOKEN* CRLF
+WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (STRING_TOKEN | RHS_VARIABLE)+
+{
+    methods=[getLhsVariable]
+}
+THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (STRING_TOKEN | RHS_VARIABLE)+
+{
+    methods=[getLhsVariable]
+}
+LHS_VARIABLE ::= VARIABLE
+RHS_VARIABLE ::= VARIABLE
+KEYWORD_EXPRESSION ::= "[keyword]" (STRING_TOKEN)+ "=" (STRING_TOKEN)+
