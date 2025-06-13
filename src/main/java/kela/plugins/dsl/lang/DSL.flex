@@ -39,10 +39,9 @@ SLASH_COMMENT=("//")[^\r\n]*
 HASH_COMMENT=("#")[^\r\n\/]*
 DEBUG_COMMENT=("#/")[^\r\n]*
 SEPARATOR=[=]
-STRING_TOKEN=[^\r\n\{\}\=]+
+STRING_TOKEN=[^\r\n\;\$\[\]\{\}\=]+
 VAR=("\{"{STRING_TOKEN}"\}")
-//JAVA_CODE=([^\r\n\$\{\}\=\[\]]";"?)+
-//DRL_CODE=("$"?[^\r\n\{\}\=\[\]]";"?)+
+JAVA_CODE=("$"?[^\r\n\=\[\]]";"?)+
 
 
 %%
@@ -75,9 +74,12 @@ VAR=("\{"{STRING_TOKEN}"\}")
 }
 
 <RHS> {
-//    {JAVA_CODE} {
-//        return DSLTypes.JAVA_CODE;
-//    }
+    {STRING_TOKEN} {
+        return DSLTypes.STRING_TOKEN;
+    }
+    {JAVA_CODE} {
+        return DSLTypes.JAVA;
+    }
 //    {DRL_CODE} {
 //        return DSLTypes.DRL_CODE;
 //    }

@@ -1,7 +1,8 @@
 <idea-plugin>
     <id>kela.plugins.dsl</id>
     <name>Drools DSL IDE Support</name>
-    <vendor email="keeganpeaco@gmail.com">Kelavandoril</vendor>
+    <category>JVM Frameworks</category>
+    <vendor email="keeganpeaco@gmail.com">Keegan Pasqualoni</vendor>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <fileType
@@ -19,5 +20,8 @@
             implementationClass="kela.plugins.dsl.lang.DSLSyntaxHighlighterFactory"/>
         <colorSettingsPage
                 implementation="kela.plugins.dsl.lang.DSLColorSettingsPage"/>
+        <lang.commenter
+            language="dsl"
+            implementationClass="kela.plugins.dsl.lang.DSLCommenter"/>
     </extensions>
 </idea-plugin>
