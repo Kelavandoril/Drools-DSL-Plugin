@@ -1,4 +1,4 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.dsl.lang.util;
 
 import com.intellij.lang.Commenter;
 import org.jetbrains.annotations.Nullable;

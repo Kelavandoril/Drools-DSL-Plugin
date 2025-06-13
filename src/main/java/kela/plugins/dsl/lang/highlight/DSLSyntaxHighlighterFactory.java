@@ -1,4 +1,4 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.dsl.lang.highlight;
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;

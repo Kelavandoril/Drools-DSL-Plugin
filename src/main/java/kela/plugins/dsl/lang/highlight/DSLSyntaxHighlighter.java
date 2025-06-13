@@ -1,11 +1,11 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.dsl.lang.highlight;
 
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
+import kela.plugins.dsl.lang.DSLLexerAdapter;
 import kela.plugins.dsl.psi.DSLTypes;
 import org.jetbrains.annotations.NotNull;
 

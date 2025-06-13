@@ -16,7 +16,7 @@ dependencies {
 
 intellij {
     version = "232.10072.27"
-    java
+    plugins = ['java']
 }
 
 tasks {

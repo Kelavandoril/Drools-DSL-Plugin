@@ -1,4 +1,4 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.dsl.lang.parser;
 
 import com.intellij.psi.tree.TokenSet;
 import kela.plugins.dsl.psi.DSLTypes;

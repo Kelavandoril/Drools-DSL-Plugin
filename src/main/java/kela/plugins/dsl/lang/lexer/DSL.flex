@@ -1,11 +1,9 @@
 package kela.plugins.dsl.lang;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import kela.plugins.dsl.psi.DSLTokenType;import kela.plugins.dsl.psi.DSLTypes;
+import kela.plugins.dsl.lang.psi.DSLTokenTypepsi.DSLTypes;
 import com.intellij.psi.TokenType;
 import java.util.Stack;
-import java.util.List;
 
 %%
 %{

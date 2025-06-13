@@ -6,11 +6,11 @@
     psiImplClassSuffix="Impl"
     psiPackage="kela.plugins.dsl.lang.psi"
     psiImplPackage="kela.plugins.dsl.lang.psi.impl"
-    psiImplUtilClass="kela.plugins.dsl.lang.DSLPsiImplUtil"
+    psiImplUtilClass="kela.plugins.dsl.lang.util.DSLPsiImplUtil"
 
     elementTypeHolderClass="kela.plugins.dsl.psi.DSLTypes"
-    elementTypeClass="kela.plugins.dsl.psi.DSLElementType"
-    tokenTypeClass="kela.plugins.dsl.psi.DSLTokenType"
+    elementTypeClass="kela.plugins.dsl.lang.psi.DSLElementType"
+    tokenTypeClass="kela.plugins.dsl.lang.psi.DSLTokenType"
 
     tokens = [
         SLASH="//"

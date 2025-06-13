@@ -1,4 +1,4 @@
-package kela.plugins.dsl.psi;
+package kela.plugins.dsl.lang.psi;
 
 import com.intellij.psi.tree.IElementType;
 import kela.plugins.dsl.lang.DSL;

@@ -1,4 +1,4 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.dsl.lang.parser;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -10,7 +10,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import kela.plugins.dsl.lang.parser.DSLParser;
+import kela.plugins.dsl.lang.DSL;
+import kela.plugins.dsl.lang.DSLFile;
+import kela.plugins.dsl.lang.DSLLexerAdapter;
 import kela.plugins.dsl.psi.DSLTypes;
 import org.jetbrains.annotations.NotNull;
 
