@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>kela.plugins.dsl</id>
     <name>Drools DSL IDE Support</name>
-    <vendor email="keeganpeaco@gmail.com">Kelavandoril</vendor>
+    <vendor email="keeganpeaco@yahoo.com">Kelavandoril</vendor>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <!-- ******************** DSL ******************** -->
@@ -11,6 +11,14 @@
             fieldName="INSTANCE"
             language="dsl"
             extensions="dsl"
+        />
+        <!-- ******************** DSLR ******************** -->
+        <fileType
+                name="dslr"
+                implementationClass="kela.plugins.dslr.lang.DSLRFileType"
+                fieldName="INSTANCE"
+                language="dslr"
+                extensions="dslr"
         />
     </extensions>
 </idea-plugin>
