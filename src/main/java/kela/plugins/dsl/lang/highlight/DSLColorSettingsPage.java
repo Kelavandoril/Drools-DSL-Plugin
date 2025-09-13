@@ -5,7 +5,7 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
-import kela.plugins.dsl.lang.DSLIcon;
+import kela.plugins.FileIcon;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,7 +21,7 @@ public class DSLColorSettingsPage implements ColorSettingsPage {
 
     @Override
     public Icon getIcon() {
-        return DSLIcon.FILE;
+        return FileIcon.FILE;
     }
 
     @NotNull

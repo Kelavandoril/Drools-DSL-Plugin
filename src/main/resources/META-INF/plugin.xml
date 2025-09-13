@@ -4,6 +4,7 @@
     <category>JVM Frameworks</category>
     <vendor email="keeganpeaco@gmail.com">Keegan Pasqualoni</vendor>
     <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.drools</depends>-->
     <extensions defaultExtensionNs="com.intellij">
         <fileType
             name="dsl"
@@ -23,5 +24,24 @@
         <lang.commenter
             language="dsl"
             implementationClass="kela.plugins.dsl.lang.util.DSLCommenter"/>
+
+<!--        <fileType-->
+<!--                name="dslr"-->
+<!--                implementationClass="kela.plugins.dslr.lang.DSLRFileType"-->
+<!--                fieldName="INSTANCE"-->
+<!--                language="dslr"-->
+<!--                extensions="dslr"-->
+<!--        />-->
+<!--        <lang.parserDefinition-->
+<!--                language="dslr"-->
+<!--                implementationClass="kela.plugins.dslr.lang.parser.DSLRParserDefinition"/>-->
+<!--        <lang.syntaxHighlighterFactory-->
+<!--                language="dslr"-->
+<!--                implementationClass="kela.plugins.dslr.lang.highlight.DSLRSyntaxHighlighterFactory"/>-->
+<!--        <colorSettingsPage-->
+<!--                implementation="kela.plugins.dslr.lang.highlight.DSLRColorSettingsPage"/>-->
+<!--        <lang.commenter-->
+<!--                language="dslr"-->
+<!--                implementationClass="kela.plugins.dslr.lang.util.DSLRCommenter"/>-->
     </extensions>
 </idea-plugin>

@@ -3,6 +3,7 @@ package kela.plugins.dsl.lang;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.openapi.util.NlsSafe;
+import kela.plugins.FileIcon;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,6 +37,6 @@ public class DSLFileType extends LanguageFileType {
 
     @Override
     public Icon getIcon() {
-        return DSLIcon.FILE;
+        return FileIcon.FILE;
     }
 }

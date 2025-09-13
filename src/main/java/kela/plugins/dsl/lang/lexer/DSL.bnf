@@ -6,7 +6,6 @@
     psiImplClassSuffix="Impl"
     psiPackage="kela.plugins.dsl.lang.psi"
     psiImplPackage="kela.plugins.dsl.lang.psi.impl"
-    psiImplUtilClass="kela.plugins.dsl.lang.util.DSLPsiImplUtil"
 
     elementTypeHolderClass="kela.plugins.dsl.psi.DSLTypes"
     elementTypeClass="kela.plugins.dsl.lang.psi.DSLElementType"
@@ -32,15 +31,11 @@ ENTRY ::= COMMENT |
           KEYWORD_EXPRESSION
 COMMENT ::= ("//"|"#") STRING_TOKEN* CRLF
 DEBUG_COMMENT ::= ("#/") STRING_TOKEN* CRLF
-WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE)+
-{
-    methods=[getLhsVariable]
-}
-THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE)+
-{
-    methods=[getLhsVariable]
-}
+//WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE)+
+WHEN_EXPRESSION ::= "[when]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE | CRLF)+
+//THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE)+
+THEN_EXPRESSION ::= "[then]" (STRING_TOKEN | LHS_VARIABLE)+ "=" (JAVA_CODE | RHS_VARIABLE | CRLF)+
 LHS_VARIABLE ::= VARIABLE
 RHS_VARIABLE ::= VARIABLE
 JAVA_CODE ::= JAVA
-KEYWORD_EXPRESSION ::= "[keyword]" (STRING_TOKEN)+ "=" (STRING_TOKEN)+
+KEYWORD_EXPRESSION ::= "[keyword]" (STRING_TOKEN)+ "=" (JAVA_CODE)+

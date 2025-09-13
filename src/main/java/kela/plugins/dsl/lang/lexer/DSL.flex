@@ -1,7 +1,7 @@
 package kela.plugins.dsl.lang;
 
 import com.intellij.psi.tree.IElementType;
-import kela.plugins.dsl.lang.psi.DSLTokenTypepsi.DSLTypes;
+import kela.plugins.dsl.psi.DSLTypes;
 import com.intellij.psi.TokenType;
 import java.util.Stack;
 
@@ -37,9 +37,10 @@ SLASH_COMMENT=("//")[^\r\n]*
 HASH_COMMENT=("#")[^\r\n\/]*
 DEBUG_COMMENT=("#/")[^\r\n]*
 SEPARATOR=[=]
-STRING_TOKEN=[^\r\n\;\$\[\]\{\}\=]+
+STRING_TOKEN=[^\r\n\;\$\{\}\=]+
 VAR=("\{"{STRING_TOKEN}"\}")
-JAVA_CODE=("$"?[^\r\n\=\[\]]";"?)+
+//JAVA_CODE=("$"?[^\r\=\[\]]";"?)+?!<"["
+JAVA_CODE=[^\r\n\[\]\{\}]+
 
 
 %%
@@ -72,15 +73,12 @@ JAVA_CODE=("$"?[^\r\n\=\[\]]";"?)+
 }
 
 <RHS> {
-    {STRING_TOKEN} {
-        return DSLTypes.STRING_TOKEN;
-    }
+//    {STRING_TOKEN} {
+//        return DSLTypes.STRING_TOKEN;
+//    }
     {JAVA_CODE} {
         return DSLTypes.JAVA;
     }
-//    {DRL_CODE} {
-//        return DSLTypes.DRL_CODE;
-//    }
     {VAR} {
         return DSLTypes.VARIABLE;
     }
