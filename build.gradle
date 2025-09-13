@@ -1,0 +1,26 @@
+plugins {
+    id("org.jetbrains.intellij") version "1.17.4"
+}
+
+group = "kela.plugins"
+version = "1.0.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+intellij {
+    version = "232.10072.27"
+    plugins = ['java']
+}
+
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+}
