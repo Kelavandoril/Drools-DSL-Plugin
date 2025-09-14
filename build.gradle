@@ -24,3 +24,11 @@ tasks {
         useJUnitPlatform()
     }
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs("src/main/gen")
+        }
+    }
+}
