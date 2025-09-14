@@ -15,6 +15,11 @@
         <lang.parserDefinition
                 language="dsl"
                 implementationClass="kela.plugins.drools.dsl.lang.parser.DSLParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="dsl"
+                implementationClass="kela.plugins.drools.dsl.lang.highlighter.DSLSyntaxHighlighterFactory"/>
+        <colorSettingsPage
+                implementation="kela.plugins.drools.dsl.lang.highlighter.DSLColorSettingsPage"/>
 
         <!-- ******************** DSLR ******************** -->
         <fileType

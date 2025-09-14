@@ -1,4 +1,4 @@
-name: Java CI with Gradle
+name: PR Build
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           java-version: '17'
@@ -19,7 +19,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.14'
-      - name: Test with Gradle Wrapper
+      - name: Test
         run: gradle clean test
-      - name: Build with Gradle Wrapper
+      - name: Build
         run: gradle build
