@@ -1,4 +1,4 @@
-package kela.plugins;
+package kela.plugins.drools;
 
 import com.intellij.openapi.util.IconLoader;
 

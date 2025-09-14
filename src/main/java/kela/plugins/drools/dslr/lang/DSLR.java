@@ -1,4 +1,4 @@
-package kela.plugins.dslr.lang;
+package kela.plugins.drools.dslr.lang;
 
 import com.intellij.lang.Language;
 

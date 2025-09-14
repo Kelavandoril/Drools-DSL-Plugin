@@ -1,9 +1,9 @@
-package kela.plugins.dsl.lang;
+package kela.plugins.drools.dsl.lang;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.util.NlsContexts;
 import com.intellij.openapi.util.NlsSafe;
-import kela.plugins.Icon;
+import kela.plugins.drools.Icon;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 

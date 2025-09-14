@@ -7,7 +7,7 @@
         <!-- ******************** DSL ******************** -->
         <fileType
             name="dsl"
-            implementationClass="kela.plugins.dsl.lang.DSLFileType"
+            implementationClass="kela.plugins.drools.dsl.lang.DSLFileType"
             fieldName="INSTANCE"
             language="dsl"
             extensions="dsl"
@@ -15,7 +15,7 @@
         <!-- ******************** DSLR ******************** -->
         <fileType
                 name="dslr"
-                implementationClass="kela.plugins.dslr.lang.DSLRFileType"
+                implementationClass="kela.plugins.drools.dslr.lang.DSLRFileType"
                 fieldName="INSTANCE"
                 language="dslr"
                 extensions="dslr"
