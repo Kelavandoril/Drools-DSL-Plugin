@@ -1,0 +1,19 @@
+name: Gitflow
+
+on:
+  pull_request:
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Main
+        if: github.base_ref == 'main' && !(startsWith(github.head_ref, 'release/') || startsWith(github.head_ref, 'hotfix/'))
+        run: |
+          echo "ERROR: You can only merge to main from a release or hotfix branch."
+          exit 1
+      - name: Develop
+        if: github.base_ref == 'develop' && !(startsWith(github.head_ref, 'hotfix/') || startsWith(github.head_ref, 'feature/'))
+        run: |
+          echo "ERROR: You can only merge to develop from a hotfix or feature branch."
+          exit 1
