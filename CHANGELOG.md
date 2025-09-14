@@ -12,5 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Gradle project files
 - IDE recognition of .dsl and .dslr files
 - DSL grammar support in IDE
+- DSL syntax highlighting
+  - Customization options in Settings
 
 [unreleased]: https://github.com/Kelavandoril/Drools-DSL-Plugin/compare/main...develop
