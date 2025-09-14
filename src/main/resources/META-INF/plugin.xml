@@ -12,6 +12,10 @@
             language="dsl"
             extensions="dsl"
         />
+        <lang.parserDefinition
+                language="dsl"
+                implementationClass="kela.plugins.drools.dsl.lang.parser.DSLParserDefinition"/>
+
         <!-- ******************** DSLR ******************** -->
         <fileType
                 name="dslr"
