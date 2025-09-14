@@ -22,7 +22,7 @@ import java.util.Stack;
     }
 %}
 %class DSLLexer
-%implements FlexLexer
+%implements com.intellij.lexer.FlexLexer
 %unicode
 %function advance
 %type IElementType
@@ -33,8 +33,8 @@ import java.util.Stack;
 %state RHS
 
 CRLF=\R
-SLASH_COMMENT=("//")[^\r\n]*
-HASH_COMMENT=("#")[^\r\n\/]*
+SLASH_COMMENT=("//")[^\r\n]*{CRLF}?
+HASH_COMMENT=("#")[^\/\r\n]*{CRLF}?
 DEBUG_COMMENT=("#/")[^\r\n]*
 SEPARATOR=[=]
 STRING_TOKEN=[^\r\n\;\$\{\}\=]+

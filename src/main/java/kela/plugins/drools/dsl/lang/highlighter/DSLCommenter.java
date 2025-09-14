@@ -9,12 +9,12 @@ import java.util.List;
 public class DSLCommenter implements Commenter {
     @Override
     public @Nullable String getLineCommentPrefix() {
-        return "#";
+        return null;
     }
 
     @Override
     public @NotNull List<String> getLineCommentPrefixes() {
-        return null;
+        return List.of("#", "//");
     }
 
     @Override
