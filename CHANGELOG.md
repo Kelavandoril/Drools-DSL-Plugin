@@ -14,5 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - DSL grammar support in IDE
 - DSL syntax highlighting
   - Customization options in Settings
+- DSL commenting support
 
 [unreleased]: https://github.com/Kelavandoril/Drools-DSL-Plugin/compare/main...develop

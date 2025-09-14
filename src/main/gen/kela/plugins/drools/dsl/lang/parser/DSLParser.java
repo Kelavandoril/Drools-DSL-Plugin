@@ -36,7 +36,7 @@ public class DSLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ("//"|"#") STRING_TOKEN* CRLF
+  // ("//"|"#") STRING_TOKEN* CRLF?
   public static boolean COMMENT(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "COMMENT")) return false;
     if (!nextTokenIs(b, "<comment>", HASH, SLASH)) return false;
@@ -44,7 +44,7 @@ public class DSLParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, COMMENT, "<comment>");
     r = COMMENT_0(b, l + 1);
     r = r && COMMENT_1(b, l + 1);
-    r = r && consumeToken(b, CRLF);
+    r = r && COMMENT_2(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -69,8 +69,15 @@ public class DSLParser implements PsiParser, LightPsiParser {
     return true;
   }
 
+  // CRLF?
+  private static boolean COMMENT_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "COMMENT_2")) return false;
+    consumeToken(b, CRLF);
+    return true;
+  }
+
   /* ********************************************************** */
-  // ("#/") STRING_TOKEN* CRLF
+  // ("#/") STRING_TOKEN* CRLF?
   public static boolean DEBUG_COMMENT(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "DEBUG_COMMENT")) return false;
     if (!nextTokenIs(b, DEBUG)) return false;
@@ -78,7 +85,7 @@ public class DSLParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, DEBUG);
     r = r && DEBUG_COMMENT_1(b, l + 1);
-    r = r && consumeToken(b, CRLF);
+    r = r && DEBUG_COMMENT_2(b, l + 1);
     exit_section_(b, m, DEBUG_COMMENT, r);
     return r;
   }
@@ -91,6 +98,13 @@ public class DSLParser implements PsiParser, LightPsiParser {
       if (!consumeToken(b, STRING_TOKEN)) break;
       if (!empty_element_parsed_guard_(b, "DEBUG_COMMENT_1", c)) break;
     }
+    return true;
+  }
+
+  // CRLF?
+  private static boolean DEBUG_COMMENT_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "DEBUG_COMMENT_2")) return false;
+    consumeToken(b, CRLF);
     return true;
   }
 
