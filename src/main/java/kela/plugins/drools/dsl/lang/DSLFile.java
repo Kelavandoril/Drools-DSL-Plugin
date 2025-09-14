@@ -3,8 +3,6 @@ package kela.plugins.drools.dsl.lang;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
-import kela.plugins.drools.dsl.lang.DSL;
-import kela.plugins.drools.dsl.lang.DSLFileType;
 import org.jetbrains.annotations.NotNull;
 
 public class DSLFile extends PsiFileBase {
