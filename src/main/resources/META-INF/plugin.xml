@@ -6,11 +6,11 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- ******************** DSL ******************** -->
         <fileType
-            name="dsl"
-            implementationClass="kela.plugins.drools.dsl.lang.DSLFileType"
-            fieldName="INSTANCE"
-            language="dsl"
-            extensions="dsl"
+                name="dsl"
+                implementationClass="kela.plugins.drools.dsl.lang.DSLFileType"
+                fieldName="INSTANCE"
+                language="dsl"
+                extensions="dsl"
         />
         <lang.parserDefinition
                 language="dsl"
@@ -20,6 +20,9 @@
                 implementationClass="kela.plugins.drools.dsl.lang.highlighter.DSLSyntaxHighlighterFactory"/>
         <colorSettingsPage
                 implementation="kela.plugins.drools.dsl.lang.highlighter.DSLColorSettingsPage"/>
+        <lang.commenter
+                language="dsl"
+                implementationClass="kela.plugins.drools.dsl.lang.highlighter.DSLCommenter"/>
 
         <!-- ******************** DSLR ******************** -->
         <fileType
