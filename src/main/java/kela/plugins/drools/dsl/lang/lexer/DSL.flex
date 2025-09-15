@@ -39,14 +39,15 @@ DEBUG_COMMENT=("#/")[^\r\n]*
 SEPARATOR=[=]
 STRING_TOKEN=[^\r\n\;\$\{\}\=]+
 VAR=("\{"{STRING_TOKEN}"\}")
-JAVA_CODE=[^\r\n\[\]\{\}]+
+JAVA_CODE=[^\r\n]+
+KEYWORDS=\[(when|then|keyword)\]
 
 
 %%
 <YYINITIAL> {
      "[when]" {
-         pushState(LHS);
-         return DSLTypes.WHEN;
+        pushState(LHS);
+        return DSLTypes.WHEN;
      }
     "[then]" {
         pushState(LHS);
@@ -90,6 +91,10 @@ JAVA_CODE=[^\r\n\[\]\{\}]+
 }
 
 {CRLF} {
+    return DSLTypes.CRLF;
+}
+
+{CRLF}/{KEYWORDS} {
     yybegin(YYINITIAL);
     return DSLTypes.CRLF;
 }

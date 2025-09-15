@@ -2,8 +2,10 @@ package kela.plugins.drools.dsl.lang.highlighter;
 
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
+import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
+import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import kela.plugins.drools.dsl.lang.lexer.DSLLexerAdapter;
 import kela.plugins.drools.dsl.psi.DSLTypes;
@@ -23,9 +25,13 @@ public class DSLSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey COMMENT =
             createTextAttributesKey("DSL_COMMENT", DefaultLanguageHighlighterColors.DOC_COMMENT);
 
+    public static final TextAttributesKey BAD_CHAR =
+            createTextAttributesKey("BAD_CHAR", HighlighterColors.BAD_CHARACTER);
+
     private static final TextAttributesKey[] KEYWORD_KEYS = new TextAttributesKey[]{WHEN,THEN,KEYWORD};
     private static final TextAttributesKey[] VAR_KEYS = new TextAttributesKey[]{VAR};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
+    private static final TextAttributesKey[] BAD_CHARS = new TextAttributesKey[]{BAD_CHAR};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
 
     @NotNull
@@ -44,6 +50,9 @@ public class DSLSyntaxHighlighter extends SyntaxHighlighterBase {
         }
         if (tokenType.equals(DSLTypes.VARIABLE)) {
             return VAR_KEYS;
+        }
+        if (tokenType.equals(TokenType.BAD_CHARACTER)) {
+            return BAD_CHARS;
         }
         return EMPTY_KEYS;
     }

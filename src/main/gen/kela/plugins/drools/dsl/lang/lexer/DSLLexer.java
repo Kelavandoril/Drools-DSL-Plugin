@@ -98,12 +98,13 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\3\0\1\1\2\2\1\3\2\1\3\4\1\5\1\1"+
-    "\3\6\3\3\1\7\1\3\3\0\3\4\1\0\3\6"+
-    "\3\0\1\10\7\0\1\11\1\12\2\0\1\13";
+    "\5\0\1\1\2\2\1\3\2\1\3\4\1\5\1\1"+
+    "\3\6\4\0\3\3\1\7\1\3\3\0\3\4\1\0"+
+    "\1\6\7\0\1\10\23\0\1\11\1\12\3\0\1\13"+
+    "\4\0\1\14";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[48];
+    int [] result = new int[74];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -128,15 +129,19 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\26\0\54\0\102\0\102\0\130\0\156\0\204"+
-    "\0\232\0\260\0\306\0\334\0\102\0\362\0\u0108\0\u011e"+
-    "\0\u0134\0\u014a\0\102\0\u0160\0\u0176\0\u018c\0\u01a2\0\u01b8"+
-    "\0\u01ce\0\u01e4\0\u01fa\0\u0210\0\u0226\0\u023c\0\u0252\0\u0268"+
-    "\0\u027e\0\u0294\0\u02aa\0\102\0\u02c0\0\u02d6\0\u02ec\0\u0302"+
-    "\0\u0318\0\u032e\0\u0344\0\102\0\102\0\u035a\0\u0370\0\102";
+    "\0\0\0\26\0\54\0\102\0\130\0\156\0\204\0\232"+
+    "\0\260\0\306\0\334\0\362\0\u0108\0\u011e\0\156\0\u0134"+
+    "\0\u014a\0\u0160\0\u0176\0\156\0\u018c\0\u01a2\0\u01b8\0\u01ce"+
+    "\0\156\0\u01e4\0\u01fa\0\u0210\0\u0226\0\u023c\0\u0252\0\u0268"+
+    "\0\u027e\0\u0294\0\u02aa\0\u02c0\0\u02d6\0\u02ec\0\u0302\0\u0318"+
+    "\0\u032e\0\u0344\0\u035a\0\156\0\u0370\0\u0386\0\u039c\0\u03b2"+
+    "\0\u03c8\0\u03de\0\u03f4\0\u040a\0\u0420\0\u0436\0\u044c\0\u0462"+
+    "\0\u0478\0\u048e\0\u04a4\0\u04ba\0\u04d0\0\u04e6\0\u04fc\0\156"+
+    "\0\156\0\u0512\0\156\0\u0528\0\156\0\u053e\0\u0554\0\u056a"+
+    "\0\u0580\0\156";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[48];
+    int [] result = new int[74];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -159,39 +164,42 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpacktrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\4\2\5\1\6\1\7\1\4\1\10\1\4\1\11"+
-    "\15\4\1\12\1\5\1\12\1\6\1\13\1\4\1\14"+
-    "\1\15\14\12\1\16\1\4\1\17\1\5\1\17\1\6"+
-    "\1\20\1\17\1\21\1\17\2\4\12\17\1\16\1\4"+
-    "\27\0\1\5\24\0\1\22\1\23\1\22\1\24\2\22"+
-    "\1\25\17\22\6\0\1\26\34\0\1\27\3\0\1\30"+
-    "\1\31\3\0\1\12\1\0\1\12\1\0\1\12\1\0"+
-    "\1\12\1\0\14\12\2\0\1\32\1\23\1\32\1\24"+
-    "\1\32\1\22\1\33\1\22\14\32\2\22\1\12\1\0"+
-    "\1\12\1\0\1\12\1\0\1\34\1\0\14\12\2\0"+
-    "\1\35\1\0\1\35\1\0\1\35\1\0\1\35\1\0"+
-    "\14\35\2\0\1\17\1\0\1\17\1\0\4\17\2\0"+
-    "\12\17\2\0\1\36\1\23\1\36\1\24\2\36\1\37"+
-    "\1\36\2\22\12\36\2\22\1\17\1\0\1\17\1\0"+
-    "\2\17\1\40\1\17\2\0\12\17\2\0\1\22\1\23"+
-    "\1\22\1\24\2\22\1\0\17\22\1\0\1\23\24\0"+
-    "\1\25\1\0\1\25\1\0\22\25\1\26\1\23\1\26"+
-    "\1\24\22\26\13\0\1\41\26\0\1\42\25\0\1\43"+
-    "\11\0\1\32\1\23\1\32\1\24\1\32\1\22\1\12"+
-    "\1\22\14\32\2\22\1\33\1\0\1\33\1\0\1\33"+
-    "\1\25\1\33\1\25\14\33\2\25\1\34\1\23\1\34"+
-    "\1\24\1\34\1\26\1\34\1\26\14\34\2\26\1\35"+
-    "\1\0\1\35\1\0\1\35\1\0\1\35\1\0\14\35"+
-    "\1\0\1\44\1\36\1\23\1\36\1\24\2\36\1\17"+
-    "\1\36\2\22\12\36\2\22\1\37\1\0\1\37\1\0"+
-    "\4\37\2\25\12\37\2\25\1\40\1\23\1\40\1\24"+
-    "\4\40\2\26\12\40\2\26\23\0\1\45\15\0\1\46"+
-    "\25\0\1\47\34\0\1\50\21\0\1\51\25\0\1\52"+
-    "\26\0\1\53\17\0\1\54\25\0\1\55\34\0\1\56"+
-    "\17\0\1\57\24\0\1\60\14\0";
+    "\1\6\2\7\1\10\1\11\1\6\1\12\1\6\1\13"+
+    "\15\6\1\14\1\7\1\14\1\10\1\15\1\6\1\16"+
+    "\1\17\14\14\1\20\1\6\1\21\1\7\1\21\1\10"+
+    "\1\22\1\21\1\23\17\21\1\0\2\24\1\25\33\0"+
+    "\1\26\52\0\1\27\16\0\1\7\6\0\1\27\15\0"+
+    "\1\30\1\31\1\30\1\32\2\30\1\33\17\30\6\0"+
+    "\1\34\34\0\1\35\3\0\1\36\1\37\3\0\1\14"+
+    "\1\0\1\14\1\0\1\14\1\0\1\14\1\0\14\14"+
+    "\2\0\1\40\1\31\1\40\1\32\1\40\1\30\1\41"+
+    "\1\30\14\40\2\30\1\14\1\0\1\14\1\0\1\14"+
+    "\1\0\1\42\1\0\14\14\2\0\1\43\1\0\1\43"+
+    "\1\0\1\43\1\0\1\43\1\0\14\43\2\0\1\21"+
+    "\1\0\1\21\1\0\22\21\1\22\1\31\1\22\1\32"+
+    "\2\22\1\21\17\22\1\21\1\0\1\21\1\0\2\21"+
+    "\1\44\17\21\1\0\1\24\36\0\1\45\3\0\1\46"+
+    "\24\0\1\47\3\0\2\50\3\0\1\30\1\31\1\30"+
+    "\1\32\2\30\1\0\17\30\1\0\1\31\24\0\1\33"+
+    "\1\0\1\33\1\0\22\33\1\34\1\31\1\34\1\32"+
+    "\22\34\13\0\1\51\26\0\1\52\25\0\1\53\11\0"+
+    "\1\40\1\31\1\40\1\32\1\40\1\30\1\14\1\30"+
+    "\14\40\2\30\1\41\1\0\1\41\1\0\1\41\1\33"+
+    "\1\41\1\33\14\41\2\33\1\42\1\31\1\42\1\32"+
+    "\1\42\1\34\1\42\1\34\14\42\2\34\1\43\1\0"+
+    "\1\43\1\0\1\43\1\0\1\43\1\0\14\43\1\0"+
+    "\1\54\1\44\1\31\1\44\1\32\22\44\20\0\1\55"+
+    "\20\0\1\56\25\0\1\57\26\0\1\60\34\0\1\61"+
+    "\15\0\1\62\25\0\1\63\31\0\1\64\22\0\1\65"+
+    "\34\0\1\66\15\0\1\67\34\0\1\70\21\0\1\71"+
+    "\25\0\1\72\31\0\1\73\24\0\2\74\25\0\1\75"+
+    "\21\0\1\76\26\0\1\77\17\0\1\100\25\0\1\101"+
+    "\37\0\1\102\12\0\1\103\34\0\1\104\17\0\1\105"+
+    "\34\0\1\106\20\0\1\107\32\0\1\110\17\0\1\111"+
+    "\30\0\1\74\22\0\1\76\24\0\1\112\14\0";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[902];
+    int [] result = new int[1430];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -229,12 +237,13 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\3\0\2\11\7\1\1\11\5\1\1\11\3\1\3\0"+
-    "\3\1\1\0\3\1\3\0\1\11\7\0\2\11\2\0"+
+    "\5\0\1\11\10\1\1\11\4\1\1\11\1\1\2\0"+
+    "\1\1\1\11\3\1\3\0\3\1\1\0\1\1\7\0"+
+    "\1\11\23\0\2\11\1\0\1\11\1\0\1\11\4\0"+
     "\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[48];
+    int [] result = new int[74];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -280,6 +289,9 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
 
   /** zzAtEOF == true <=> the scanner is at the EOF */
   private boolean zzAtEOF;
+
+  /** For the backwards DFA of general lookahead statements */
+  private boolean [] zzFin = new boolean [Math.min(ZZ_BUFFERSIZE, zzMaxBufferLen())+1];
 
   /** Number of newlines encountered up to the start of the matched text. */
   @SuppressWarnings("unused")
@@ -577,63 +589,97 @@ class DSLLexer implements com.intellij.lexer.FlexLexer {
     yypushback(yylength());
             }
           // fall through
-          case 12: break;
+          case 13: break;
           case 2:
-            { yybegin(YYINITIAL);
-    return DSLTypes.CRLF;
+            { return DSLTypes.CRLF;
             }
           // fall through
-          case 13: break;
+          case 14: break;
           case 3:
             { yybegin(YYINITIAL);
     return DSLTypes.COMMENT;
             }
           // fall through
-          case 14: break;
+          case 15: break;
           case 4:
             { return DSLTypes.STRING_TOKEN;
             }
           // fall through
-          case 15: break;
+          case 16: break;
           case 5:
             { pushState(RHS);
         return DSLTypes.EQ;
             }
           // fall through
-          case 16: break;
+          case 17: break;
           case 6:
             { return DSLTypes.JAVA;
             }
           // fall through
-          case 17: break;
+          case 18: break;
           case 7:
             { return DSLTypes.DEBUG_COMMENT;
             }
           // fall through
-          case 18: break;
+          case 19: break;
           case 8:
             { return DSLTypes.VARIABLE;
             }
           // fall through
-          case 19: break;
+          case 20: break;
           case 9:
             { pushState(LHS);
         return DSLTypes.THEN;
             }
           // fall through
-          case 20: break;
+          case 21: break;
           case 10:
             { pushState(LHS);
-         return DSLTypes.WHEN;
+        return DSLTypes.WHEN;
             }
           // fall through
-          case 21: break;
+          case 22: break;
           case 11:
+            // general lookahead, find correct zzMarkedPos
+            { int zzFState = 3;
+              int zzFPos = zzStartRead;
+              if (zzFin.length <= zzBufferL.length()) {
+                zzFin = new boolean[zzBufferL.length()+1];
+              }
+              boolean zzFinL[] = zzFin;
+              while (zzFState != -1 && zzFPos < zzMarkedPos) {
+                zzFinL[zzFPos] = ((zzAttrL[zzFState] & 1) == 1);
+                zzInput = Character.codePointAt(zzBufferL, zzFPos);
+                zzFPos += Character.charCount(zzInput);
+                zzFState = zzTransL[ zzRowMapL[zzFState] + zzCMap(zzInput) ];
+              }
+              if (zzFState != -1) {
+                zzFinL[zzFPos++] = ((zzAttrL[zzFState] & 1) == 1);
+              }
+              while (zzFPos <= zzMarkedPos) {
+                zzFinL[zzFPos++] = false;
+              }
+
+              zzFState = 4;
+              zzFPos = zzMarkedPos;
+              while (!zzFinL[zzFPos] || (zzAttrL[zzFState] & 1) != 1) {
+                zzInput = Character.codePointBefore(zzBufferL, zzFPos);
+                zzFPos -= Character.charCount(zzInput);
+                zzFState = zzTransL[ zzRowMapL[zzFState] + zzCMap(zzInput) ];
+              };
+              zzMarkedPos = zzFPos;
+            }
+            { yybegin(YYINITIAL);
+    return DSLTypes.CRLF;
+            }
+          // fall through
+          case 23: break;
+          case 12:
             { pushState(LHS);
         return DSLTypes.KEYWORD;
             }
           // fall through
-          case 22: break;
+          case 24: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }
