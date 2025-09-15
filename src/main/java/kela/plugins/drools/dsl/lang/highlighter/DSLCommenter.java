@@ -9,7 +9,7 @@ import java.util.List;
 public class DSLCommenter implements Commenter {
     @Override
     public @Nullable String getLineCommentPrefix() {
-        return null;
+        return "#";
     }
 
     @Override
