@@ -1,0 +1,121 @@
+{
+    parserClass="kela.plugins.drools.dslr.lang.parser.DSLRParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="DSLR"
+    psiImplClassSuffix="Impl"
+    psiPackage="kela.plugins.drools.dslr.lang.psi"
+    psiImplPackage="kela.plugins.drools.dslr.lang.psi.impl"
+
+    elementTypeHolderClass="kela.plugins.drools.dslr.psi.DSLRTypes"
+    elementTypeClass="kela.plugins.drools.dslr.lang.psi.DSLRElementType"
+    tokenTypeClass="kela.plugins.drools.dslr.lang.psi.DSLRTokenType"
+
+    tokens = [
+        INT="int"
+        CRON="cron"
+        COLON=":"
+        EQ="="
+        DOLLAR="$"
+        L_PAREN="("
+        R_PAREN=")"
+        HYPHEN="-"
+        SLASH="//"
+        HASH="#"
+        DEBUG="#/"
+        TRUE="true"
+        FALSE="false"
+        PACKAGE="package"
+        DECLARE="declare"
+        QUERY="query"
+        EXPANDER="expander"
+        IMPORT="import"
+        GLOBAL="global"
+        SALIENCE="salience"
+        ENABLED="enabled"
+        DATE_EFFECTIVE="date-effective"
+        DATE_EXPIRES="date-expires"
+        NO_LOOP="no-loop"
+        ACTIVATION_GROUP="activation-group"
+        DURATION="duration"
+        TIMER="timer"
+        CALENDAR="calendar"
+        AUTO_FOCUS="auto-focus"
+        LOCK_ON_ACTIVE="lock-on-active"
+        DIALECT="dialect"
+        SEMICOLON=";"
+        RULE="rule"
+        WHEN="when"
+        THEN="then"
+        END="end"
+    ]
+}
+
+dslrFile ::= ENTRY*
+COMMENT ::= ("//"|"#") STRING_TOKEN* CRLF?
+BOOLEAN ::= "true" | "false"
+ACTIVATION_GROUP_NAME ::= STRING_LITERAL
+CRON_TIMER ::= "cron" ":" CRON_EXPR
+INT_TIMER ::= "int" ":" TIMER_DELAY TIMER_INTERVAL
+TIMER_DELAY ::= INT_TIMER_EXPR
+TIMER_INTERVAL ::= INT_TIMER_EXPR
+DIALECT_NAME ::= STRING_LITERAL
+CALENDAR_EXPR ::= STRING_LITERAL
+RULE_NAME ::= STRING_LITERAL
+PACKAGE_NAME ::= STRING_TOKEN
+DECLARE_TYPE_NAME ::= STRING_TOKEN
+DECLARE_METADATA ::= (CRLF | COMMENT | DECLARE_TYPE_METADATA)
+QUERY_NAME ::= STRING_TOKEN
+QUERY_LHS ::= (CRLF | COMMENT | STRING_TOKEN | ":" | "(" | ")" | "$" | "=" | ";")+
+EXPANDER_NAME ::= STRING_TOKEN
+IMPORT_NAME ::= STRING_TOKEN
+GLOBAL_TYPE ::= STRING_TOKEN
+GLOBAL_NAME ::= STRING_TOKEN
+
+ENTRY ::= COMMENT |
+            CRLF |
+            PACKAGE_STATEMENT |
+            DECLARE_STATEMENT |
+            QUERY_STATEMENT |
+            EXPANDER_STATEMENT |
+            IMPORT_STATEMENT |
+            GLOBAL_STATEMENT |
+            RULE_EXPRESSION
+
+PACKAGE_STATEMENT ::= "package" PACKAGE_NAME (";")?
+DECLARE_STATEMENT ::= "declare" DECLARE_TYPE_NAME (DECLARE_METADATA)* "end"
+QUERY_STATEMENT ::= "query" QUERY_NAME "(" (QUERY_ARG)* ")" QUERY_LHS "end"
+EXPANDER_STATEMENT ::= "expander" EXPANDER_NAME (";")?
+IMPORT_STATEMENT ::= "import" IMPORT_NAME (";")?
+GLOBAL_STATEMENT ::= "global" GLOBAL_TYPE GLOBAL_NAME (";")?
+RULE_EXPRESSION ::= "rule" RULE_NAME (RULE_ATTRIBUTES)* "when" LHS "then" RHS "end"
+RULE_ATTRIBUTES ::= COMMENT |
+                    CRLF |
+                    SALIENCE_ATTR |
+                    ENABLED_ATTR |
+                    DATE_EFFECTIVE_ATTR |
+                    DATE_EXPIRES_ATTR |
+                    NO_LOOP_ATTR |
+                    ACTIVATION_GROUP_ATTR |
+                    DURATION_ATTR |
+                    TIMER_ATTR |
+                    CALENDAR_ATTR |
+                    AUTO_FOCUS_ATTR |
+                    LOCK_ON_ATTR |
+                    DIALECT_ATTR
+
+SALIENCE_ATTR ::= "salience" NUMBER
+ENABLED_ATTR ::= "enabled" BOOLEAN
+DATE_EFFECTIVE_ATTR ::= "date-effective" DATE
+DATE_EXPIRES_ATTR ::= "date-expires" DATE
+NO_LOOP_ATTR ::= "no-loop" BOOLEAN
+ACTIVATION_GROUP_ATTR ::= "activation-group" ACTIVATION_GROUP_NAME
+DURATION_ATTR ::= "duration" NUMBER
+TIMER_ATTR ::= "timer" "(" (CRON_TIMER|INT_TIMER) ")"
+CALENDAR_ATTR ::= "calendar" CALENDAR_EXPR
+AUTO_FOCUS_ATTR ::= "auto-focus" BOOLEAN
+LOCK_ON_ATTR ::= "lock-on-active" BOOLEAN
+DIALECT_ATTR ::= "dialect" DIALECT_NAME
+LHS ::= (CRLF | STRING_TOKEN)+
+RHS ::= (CRLF | STRING_TOKEN)+
+

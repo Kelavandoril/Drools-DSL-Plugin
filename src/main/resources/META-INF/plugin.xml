@@ -32,5 +32,8 @@
                 language="dslr"
                 extensions="dslr"
         />
+        <lang.parserDefinition
+                language="dslr"
+                implementationClass="kela.plugins.drools.dslr.lang.parser.DSLRParserDefinition"/>
     </extensions>
 </idea-plugin>
