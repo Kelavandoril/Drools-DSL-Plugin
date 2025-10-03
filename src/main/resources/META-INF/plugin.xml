@@ -35,5 +35,10 @@
         <lang.parserDefinition
                 language="dslr"
                 implementationClass="kela.plugins.drools.dslr.lang.parser.DSLRParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="dslr"
+                implementationClass="kela.plugins.drools.dslr.lang.highlighter.DSLRSyntaxHighlighterFactory"/>
+        <colorSettingsPage
+                implementation="kela.plugins.drools.dslr.lang.highlighter.DSLRColorSettingsPage"/>
     </extensions>
 </idea-plugin>
